@@ -4,9 +4,9 @@ namespace Shirish71\TailwindForm;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class TailwindFormServiceProvider extends ServiceProvider
+class TailwindFormServiceProvider extends BaseServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -50,6 +50,18 @@ class TailwindFormServiceProvider extends ServiceProvider
         }
 
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'form-components');
+        Blade::directive('bind', function ($bind) {
+            return '<?php app(\Shirish71\TailwindForm\FormDataBinder::class)->bind('.$bind.'); ?>';
+        });
+        Blade::directive('endbind', function () {
+            return '<?php app(\Shirish71\TailwindForm\FormDataBinder::class)->pop(); ?>';
+        });
+        Blade::directive('wire', function ($modifier) {
+            return '<?php app(\Shirish71\TailwindForm\FormDataBinder::class)->wire('.$modifier.'); ?>';
+        });
+        Blade::directive('endwire', function () {
+            return '<?php app(\Shirish71\TailwindForm\FormDataBinder::class)->endwire(); ?>';
+        });
 
         $prefix = config('form-components.prefix');
 
@@ -67,8 +79,6 @@ class TailwindFormServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.' /../config/config.php', 'tailwind-form');
 
         // Register the main class to use with the facade
-        $this->app->singleton('tailwind-form', function () {
-            return new TailwindForm;
-        });
+        $this->app->singleton(FormDataBinder::class, fn() => new FormDataBinder);
     }
 }
