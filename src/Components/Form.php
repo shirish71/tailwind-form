@@ -3,6 +3,7 @@
 namespace Shirish71\TailwindForm\Components;
 
 use Illuminate\View\View;
+use Illuminate\Support\ViewErrorBag;
 
 class Form extends Component
 {
@@ -13,8 +14,14 @@ class Form extends Component
     public bool $spoofMethod = false;
 
 
-    public function __construct(string $method = 'POST', $url, $files, $action, $errorMessage, $successMessage)
-    {
+    public function __construct(
+        string $method = 'POST',
+        string $url,
+        string $files,
+        string $action,
+        bool $errorMessage,
+        bool $successMessage
+    ) {
         $this->method = strtoupper($method);
         $this->url = $url;
         $this->spoofMethod = in_array($this->method, ['PUT', 'PATCH', 'DELETE']);
@@ -28,13 +35,9 @@ class Form extends Component
 
     public function hasError($bag = 'default'): bool
     {
-        $errors = View::shared('errors', fn() => request()->session()->get('errors', new ViewErrorBag));
+        $errors = View::shared('errors', fn() => request()->session()->get('errors', new ViewErrorBag()));
 
         return $errors->getBag($bag)->isNotEmpty();
     }
 
-    public function render()
-    {
-        // TODO: Implement render() method.
-    }
 }

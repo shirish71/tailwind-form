@@ -4,8 +4,8 @@
 namespace Shirish71\TailwindForm\Components;
 
 use Illuminate\Support\Str;
-use Illuminate\View\Component as BaseComponent;
 use Shirish71\TailwindForm\FormDataBinder;
+use Illuminate\View\Component as BaseComponent;
 
 abstract class Component extends BaseComponent
 {
