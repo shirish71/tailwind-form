@@ -45,10 +45,7 @@
         "laravel": {
             "providers": [
                 "Shirish71\\TailwindForm\\TailwindFormServiceProvider"
-            ],
-            "aliases": {
-                "TailwindForm": "Shirish71\\TailwindForm\\TailwindFormFacade"
-            }
+            ]
         }
     }
 }
