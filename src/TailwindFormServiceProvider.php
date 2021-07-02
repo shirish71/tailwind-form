@@ -27,7 +27,7 @@ class TailwindFormServiceProvider extends BaseServiceProvider
             ], 'config');
 
             $this->publishes([
-                __DIR__.'/../../resources/views' => base_path('resources/views/vendor/form-components'),
+                __DIR__.'/../resources/views' => base_path('resources/views/vendor/tailwind-form'),
             ], 'views');
 
             // Publishing the views.
@@ -49,7 +49,8 @@ class TailwindFormServiceProvider extends BaseServiceProvider
             // $this->commands([]);
         }
 
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'form-components');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'tailwind-form');
+
         Blade::directive('bind', function ($bind) {
             return '<?php app(\Shirish71\TailwindForm\FormDataBinder::class)->bind('.$bind.'); ?>';
         });
@@ -63,9 +64,9 @@ class TailwindFormServiceProvider extends BaseServiceProvider
             return '<?php app(\Shirish71\TailwindForm\FormDataBinder::class)->endwire(); ?>';
         });
 
-        $prefix = config('form-components.prefix');
+        $prefix = config('tailwind-form.prefix');
 
-        Collection::make(config('form-components.components'))->each(
+        Collection::make(config('tailwind-form.components'))->each(
             fn($component, $alias) => Blade::component($alias, $component['class'], $prefix)
         );
     }
