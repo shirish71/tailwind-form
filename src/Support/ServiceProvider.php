@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class TailwindFormServiceProvider extends BaseServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -27,7 +27,7 @@ class TailwindFormServiceProvider extends BaseServiceProvider
             ], 'config');
 
             $this->publishes([
-                __DIR__.'/../resources/views' => base_path('resources/views/vendor/tailwind-form'),
+                __DIR__.'/../resources/views/tailwind-form/tailwind' => base_path('resources/views/components/form'),
             ], 'views');
 
             // Publishing the views.
