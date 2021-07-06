@@ -1,13 +1,12 @@
 <?php
 
-namespace Shirish71\TailwindForm\Support;
+namespace Shirish71\TailwindForm;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
-use Shirish71\TailwindForm\FormDataBinder;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class ServiceProvider extends BaseServiceProvider
+class TailwindFormServiceProvider extends BaseServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -28,7 +27,7 @@ class ServiceProvider extends BaseServiceProvider
             ], 'config');
 
             $this->publishes([
-                __DIR__.'/../resources/views/tailwind-form/tailwind' => base_path('resources/views/components/form'),
+                __DIR__.'/../resources/views' => base_path('resources/views/vendor/tailwind-form'),
             ], 'views');
 
             // Publishing the views.
@@ -78,7 +77,7 @@ class ServiceProvider extends BaseServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.' /../../config/config.php', 'tailwind-form');
+        $this->mergeConfigFrom(__DIR__.' /../config/config.php', 'tailwind-form');
 
         // Register the main class to use with the facade
         $this->app->singleton(FormDataBinder::class, fn() => new FormDataBinder);

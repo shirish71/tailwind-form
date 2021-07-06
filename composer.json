@@ -44,7 +44,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Shirish71\\TailwindForm\\Support\\ServiceProvider"
+                "Shirish71\\TailwindForm\\TailwindFormServiceProvider"
             ]
         }
     }
