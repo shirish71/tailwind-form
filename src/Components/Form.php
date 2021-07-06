@@ -7,7 +7,7 @@ use Illuminate\Support\ViewErrorBag;
 
 class Form extends Component
 {
-    public string $method, $url, $action;
+    public string $method, $action;
 
     public bool $files = false, $file = false, $errorMessage = false, $successMessage = false;
 
@@ -45,7 +45,6 @@ class Form extends Component
     public function hasError($bag = 'default'): bool
     {
         $errors = View::shared('errors', fn() => request()->session()->get('errors', new ViewErrorBag()));
-
         return $errors->getBag($bag)->isNotEmpty();
     }
 
