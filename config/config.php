@@ -16,16 +16,20 @@ return [
             'view' => 'tailwind-form::{framework}.form',
             'class' => Components\Form::class,
         ],
+        'success-message' => [
+            'view' => 'tailwind-form::{framework}.form',
+            'class' => Components\SuccessMessage::class,
+        ],
+        'form-error' => [
+            'view' => 'form-components::{framework}.form-errors',
+            'class' => Components\FormError::class,
+        ],
 
 //        'form-checkbox' => [
 //            'view' => 'form-components::{framework}.form-checkbox',
 //            'class' => Components\FormCheckbox::class,
 //        ],
 //
-//        'form-errors' => [
-//            'view' => 'form-components::{framework}.form-errors',
-//            'class' => Components\FormErrors::class,
-//        ],
 //
 //        'form-group' => [
 //            'view' => 'form-components::{framework}.form-group',
