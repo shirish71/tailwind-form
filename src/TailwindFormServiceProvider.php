@@ -29,27 +29,9 @@ class TailwindFormServiceProvider extends BaseServiceProvider
             $this->publishes([
                 __DIR__.'/../resources/views' => base_path('resources/views/vendor/tailwind-form'),
             ], 'views');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.' /../resources / views' => resource_path('views / vendor / tailwind - form'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.' /../resources / assets' => public_path('vendor / tailwind - form'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.' /../resources / lang' => resource_path('lang / vendor / tailwind - form'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
         }
 
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'tailwind-form');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'tailwind-form');
 
         Blade::directive('bind', function ($bind) {
             return '<?php app(\Shirish71\TailwindForm\FormDataBinder::class)->bind('.$bind.'); ?>';
