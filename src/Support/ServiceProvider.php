@@ -1,9 +1,10 @@
 <?php
 
-namespace Shirish71\TailwindForm;
+namespace Shirish71\TailwindForm\Support;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
+use Shirish71\TailwindForm\FormDataBinder;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
