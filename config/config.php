@@ -13,7 +13,7 @@ return [
 
     'components' => [
         'form' => [
-            'view' => 'form-components::{framework}.form',
+            'view' => 'tailwind-form::{framework}.form',
             'class' => Components\Form::class,
         ],
 

@@ -8,11 +8,8 @@
         @method($method)
     @endif
 
-    @if($errorMessage =='true')
-        <x-form.error-message></x-form.error-message>
-    @endif
-    @if($successMessage =='true')
-        <x-form.success-message></x-form.success-message>
+    @if($successMessage ==true)
+        <x-success-message/>
     @endif
     <div class="my-3">
         {!! $slot !!}

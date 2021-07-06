@@ -1,3 +1,7 @@
 @if(session('success'))
-    <x-form-alerts title="Notification" message="{{session('success')}}" type="success"></x-form-alerts>
+    <div class="alert alert_success mt-5">
+        <strong class="uppercase">Notification: </strong>
+        {{session('success')}}
+        <button type="button" class="dismiss la la-times" data-dismiss="alert"></button>
+    </div>
 @endif
