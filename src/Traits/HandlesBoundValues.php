@@ -1,6 +1,6 @@
 <?php
 
-namespace Shirish71\TailwindForm\Components;
+namespace Shirish71\TailwindForm\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;

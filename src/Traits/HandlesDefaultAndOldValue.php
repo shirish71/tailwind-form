@@ -1,6 +1,6 @@
 <?php
 
-namespace Shirish71\TailwindForm\Components;
+namespace Shirish71\TailwindForm\Traits;
 
 trait HandlesDefaultAndOldValue
 {
@@ -8,9 +8,12 @@ trait HandlesDefaultAndOldValue
 
     private function setValue(
         string $name,
+        string $label = '',
         $bind = null,
         $default = null,
-        $language = null
+        $language = null,
+        string $placeholder = '',
+        string $id = ''
     ) {
         if ($this->isWired()) {
             return;
@@ -32,6 +35,21 @@ trait HandlesDefaultAndOldValue
             $default = $bind->getTranslation($name, $language, false) ?: $default;
         }
 
+        if ($label) {
+            $this->label = $label;
+        } else {
+            $this->label = str_replace('_', ' ', ucfirst($name));
+        }
+        if ($id) {
+            $this->id = $id;
+        } else {
+            $this->id = $name;
+        }
+        if ($placeholder) {
+            $this->placeholder = $placeholder;
+        } else {
+            $this->placeholder = "Please enter {$this->label}";
+        }
         $this->value = old("{$inputName}.{$language}", $default);
     }
 }
