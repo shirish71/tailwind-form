@@ -1,15 +1,6 @@
-@props([
-'action'=>'',
-'file'=>'false',
-'files'=>'false',
-'method'=>'false',
-'errorMessage'=>'true',
-'successMessage'=>'true',
-'attributes'=>'',
-])
 <form action="{{$action??'#'}}"
       method="{{ $spoofMethod ? 'POST' : $method }}"
-      @if($file == 'true' || $files== 'true') enctype="multipart/form-data"@endif  {!! $attributes !!}>
+      @if($file == 'true' || $files == 'true') enctype="multipart/form-data" @endif  {!! $attributes !!}>
     @unless(in_array($method, ['HEAD', 'GET', 'OPTIONS']))
         @csrf
     @endunless

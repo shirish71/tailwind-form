@@ -9,24 +9,33 @@ class Form extends Component
 {
     public string $method, $url, $action;
 
-    public bool $files, $file, $errorMessage = false, $successMessage = false;
+    public bool $files = false, $file = false, $errorMessage = false, $successMessage = false;
 
     public bool $spoofMethod = false;
 
 
+    /**
+     * Form constructor.
+     * @param  string  $method
+     * @param  string  $action
+     * @param  bool  $files
+     * @param  bool  $file
+     * @param  bool  $errorMessage
+     * @param  bool  $successMessage
+     */
     public function __construct(
         string $method = 'POST',
-        string $url,
-        string $files,
-        string $action,
-        bool $errorMessage,
-        bool $successMessage
+        string $action = '#',
+        bool $files = false,
+        bool $file = false,
+        bool $errorMessage = false,
+        bool $successMessage = false
     ) {
         $this->method = strtoupper($method);
-        $this->url = $url;
         $this->spoofMethod = in_array($this->method, ['PUT', 'PATCH', 'DELETE']);
         $this->method = $method;
         $this->files = $files;
+        $this->file = $file;
         $this->action = $action;
         $this->errorMessage = $errorMessage;
         $this->successMessage = $successMessage;
