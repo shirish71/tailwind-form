@@ -24,6 +24,14 @@ return [
             'view' => 'form-components::{framework}.form-errors',
             'class' => Components\FormError::class,
         ],
+        'form-input' => [
+            'view' => 'form-components::{framework}.form-input',
+            'class' => Components\FormInput::class,
+        ],
+        'form-label' => [
+            'view' => 'form-components::{framework}.form-label',
+            'class' => Components\FormLabel::class,
+        ],
 
 //        'form-checkbox' => [
 //            'view' => 'form-components::{framework}.form-checkbox',
@@ -36,15 +44,7 @@ return [
 //            'class' => Components\FormGroup::class,
 //        ],
 //
-//        'form-input' => [
-//            'view' => 'form-components::{framework}.form-input',
-//            'class' => Components\FormInput::class,
-//        ],
 //
-//        'form-label' => [
-//            'view' => 'form-components::{framework}.form-label',
-//            'class' => Components\FormLabel::class,
-//        ],
 //
 //        'form-radio' => [
 //            'view' => 'form-components::{framework}.form-radio',
