@@ -24,8 +24,8 @@ class FormInput extends Component
         string $label = '',
         string $id = '',
         string $placeholder = '',
+        bool $required = false,
         $bind = null,
-        $required = null,
         $default = null,
         $language = null,
         bool $showErrors = true
